@@ -12,5 +12,21 @@ fn input(msg:&str)->String{
     result
 }
 
+fn string_to_int(x:String)->Result<isize,String>{
+    let y:&str=x.trim();
+    if y.chars().all(|ch|ch.is_ascii_digit()||ch=='-'){
+        return Ok(y.parse::<isize>().unwrap())
+    }
+    Err(war())
+}
+
+fn string_to_natural(x:String)->Result<usize,String>{
+    let y:&str=x.trim();
+    if y.chars().all(|ch|ch.is_ascii_digit()){
+        return Ok(y.parse::<usize>().unwrap())
+    }
+    Err(war())
+}
+
 fn main() {
 }
